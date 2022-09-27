@@ -21,16 +21,18 @@
 
 import pytest
 import time
-from pages.yandex import MainPage
+from pages.labirint import MainPage
+from selenium import webdriver
 
 
+driver = webdriver.Chrome(executable_path="/qap_m28_site_tests/", options=chrome_options )
 def test_check_main_search(web_browser):
     """ Make sure main search works fine. """
 
     page = MainPage(web_browser)
     time.sleep(9)
 
-    page.search = 'iPhone 14'
+    page.search = 'книга'
     time.sleep(3)
     page.search_run_button.click()
 
@@ -40,7 +42,7 @@ def test_check_main_search(web_browser):
     # Make sure user found the relevant products
     for title in page.products_titles.get_text():
         msg = 'Wrong product in search "{}"'.format(title)
-        assert 'iphone' in title.lower(), msg
+        assert 'книга' in title.lower(), msg
 
 
 def test_check_wrong_input_in_search(web_browser):
@@ -49,8 +51,8 @@ def test_check_wrong_input_in_search(web_browser):
     page = MainPage(web_browser)
     time.sleep(8)
 
-    # Try to enter "смартфон" with English keyboard:
-    page.search = 'cvfhnajy'
+    # Try to enter "книга" with English keyboard:
+    page.search = 'rybuf'
     time.sleep(3)
     page.search_run_button.click()
 
@@ -60,7 +62,7 @@ def test_check_wrong_input_in_search(web_browser):
     # Make sure user found the relevant products
     for title in page.products_titles.get_text():
         msg = 'Wrong product in search "{}"'.format(title)
-        assert 'смартфон' in title.lower(), msg
+        assert 'книга' in title.lower(), msg
 
 
 @pytest.mark.xfail(reason="Filter by price doesn't work")
@@ -74,7 +76,7 @@ def test_check_sort_by_price(web_browser):
     page = MainPage(web_browser)
     time.sleep(8)
 
-    page.search = 'чайник'
+    page.search = 'книга'
     time.sleep(3)
     page.search_run_button.click()
 
