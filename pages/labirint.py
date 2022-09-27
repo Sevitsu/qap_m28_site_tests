@@ -12,21 +12,21 @@ class MainPage(WebPage):
 
     def __init__(self, web_driver, url=''):
         if not url:
-            url = os.getenv("MAIN_URL") or 'https://market.yandex.ru/'
+            url = os.getenv("MAIN_URL") or 'https://www.labirint.ru/'
 
         super().__init__(web_driver, url)
 
     # Main search field
-    search = WebElement(id='header-search')
+    search = WebElement(id='search-field')
 
     # Search button
-    search_run_button = WebElement(xpath='//button[@type="submit"]')
+    search_run_button = WebElement(css_selector='span[class="b-header-b-search-e-btntxt"]')
 
     # Titles of the products in search results
-    products_titles = ManyWebElements(xpath='//a[contains(@href, "/product-") and @title!=""]')
+    products_titles = ManyWebElements(xpath='//a[contains(@href, "/books") and @title!=""]')
 
     # Button to sort products by price
-    sort_products_by_price = WebElement(css_selector='button[data-autotest-id="dprice"]')
+    sort_products_by_price = WebElement(xpath='//span[contains(text(), "Сначала дешевые"]')
 
     # Prices of the products in search results
-    products_prices = ManyWebElements(xpath='//div[@data-zone-name="price"]//span/*[1]')
+    products_prices = ManyWebElements(xpath='//span[class="price-val"]/span')
