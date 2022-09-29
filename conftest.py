@@ -61,7 +61,7 @@ def web_browser(request, selenium):
                 print(log)
 
         except:
-            pass # just ignore any errors here
+            pass  # just ignore any errors here
 
 
 def get_test_case_docstring(item):
