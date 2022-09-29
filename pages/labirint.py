@@ -17,6 +17,7 @@ class MainPage(WebPage):
         super().__init__(web_driver, url)
 
     # Page Header
+    main_page_logo = WebElement(css_selector='span[class="b-header-b-logo-e-logo"]')
     header_recommend_btn = WebElement(css_selector='span[class="itm-md-vis-hdn itm-lg-vis-shw"]')
     current_url = WebPage.get_current_url
 

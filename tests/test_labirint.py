@@ -31,6 +31,11 @@ def test_open_now_page(web_browser):
     page.header_recommend_btn.click()
     assert page.current_url() == main_url + 'now/'
 
+def test_click_main_page_logo(web_browser):
+    page = MainPage(web_browser)
+    page.main_page_logo.click()
+    assert page.current_url() == main_url
+    
 # def test_login_unsuccessful(web_browser):
 #     page = MainPage(web_browser)
 #     page.login_btn.click()
