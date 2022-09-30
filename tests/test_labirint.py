@@ -21,21 +21,80 @@
 
 import pytest
 import time
-from pages.labirint import MainPage
+
+from pages.labirint_main import MainPage
 from config import main_url
 from selenium import webdriver
 
 
-def test_open_now_page(web_browser):
-    page = MainPage(web_browser)
-    page.header_recommend_btn.click()
-    assert page.current_url() == main_url + 'now/'
+# def test_open_now_page(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_recommend_btn.click()
+#     assert page.current_url() == main_url + 'now/'
 
-def test_click_main_page_logo(web_browser):
+
+# def test_open_books_page(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_books.click()
+#     assert page.current_url() == main_url + 'books/'
+
+
+# def test_open_best_page(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_best.click()
+#     assert page.current_url() == main_url + 'best/'
+
+
+# def test_open_school_page(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_school.click()
+#     assert page.current_url() == main_url + 'school/'
+
+
+# def test_open_toys_page(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_toys.click()
+#     assert page.current_url() == main_url + 'games/'
+
+
+# def test_open_office_page(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_office.click()
+#     assert page.current_url() == main_url + 'office/'
+
+
+# def test_open_souvenir_page(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_more.click()
+#     page.header_more_souvenir.click()
+#     assert page.current_url() == main_url + 'souvenir/'
+
+
+# def test_open_household_page(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_more.click()
+#     page.header_more_household.click()
+#     assert page.current_url() == main_url + 'household/'
+
+
+# def test_open_club_page(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_club.click()
+#     assert page.current_url() == main_url + 'club/'
+
+
+def test_change_region_name(web_browser):
     page = MainPage(web_browser)
-    page.main_page_logo.click()
-    assert page.current_url() == main_url
-    
+    page.header_city_region.click()
+    page.header_drp_region.send_keys('Екатеринбург')
+    page.header_drp_region.send_keys(u'\ue007')
+    assert page.header_region_value.get_attribute('value') == "Екатеринбург"
+
+# def test_click_main_page_logo(web_browser):
+#     page = MainPage(web_browser)
+#     page.main_page_logo.click()
+#     assert page.current_url() == main_url
+
 # def test_login_unsuccessful(web_browser):
 #     page = MainPage(web_browser)
 #     page.login_btn.click()
