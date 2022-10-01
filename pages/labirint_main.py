@@ -16,8 +16,19 @@ class MainPage(WebPage):
 
         super().__init__(web_driver, url)
 
-    # Page Header
+    # Main page Logo
     main_page_logo = WebElement(css_selector='span[class="b-header-b-logo-e-logo"]')
+
+    # Auth window close
+    auth_window_close = WebElement(css_selector='div[class="js-close-lab-modal new-auth__close header-sprite"]')
+
+    # Page Header
+    header_notify_btn = WebElement(css_selector='a[class="b-header-b-personal-e-link top-link-main have-dropdown-'
+                                                'touchlink top-link-main_notification"]')
+    header_putorder = WebElement(xpath='//a[@href = "/cabinet/putorder/"]')
+    header_cart = WebElement(css_selector='a[class="b-header-b-personal-e-link top-link-main analytics-click-js'
+                                          ' cart-icon-js"]')
+
     header_recommend_btn = WebElement(css_selector='span[class="itm-md-vis-hdn itm-lg-vis-shw"]')
     current_url = WebPage.get_current_url
     header_books = WebElement(css_selector='li[data-toggle="header-genres"]')
@@ -34,8 +45,16 @@ class MainPage(WebPage):
     header_drp_region = WebElement(id='region-post')
     header_region_value = WebElement(id='region-post')
 
+    header_help = WebElement(css_selector='li[data-event-content="Доставка и оплата"]')
+    header_certificates = WebElement(css_selector='li[data-event-content="Сертификаты"]')
+    header_rating = WebElement(css_selector='li[data-event-content="Рейтинги"]')
+    header_novelty = WebElement(css_selector='li[data-event-content="Новинки"]')
+    header_sale = WebElement(css_selector='li[data-event-content="Скидки"]')
+    header_contact = WebElement(css_selector='li[data-event-content="Контакты"]')
+
+
     # Personal login
-    login_btn = WebElement(css_selector='span[class="b-header-b-personal-e-text '
+    mylab_btn = WebElement(css_selector='span[class="b-header-b-personal-e-text '
                                         'b-header-b-personal-e-text-m-overflow"]')
     input_field_1 = WebElement(id='_inputnamecode_2')
 

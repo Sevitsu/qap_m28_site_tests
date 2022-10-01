@@ -17,14 +17,73 @@
 #  export SELENIUM_HOST=<moon host>
 #  export SELENIUM_PORT=4444
 #  pytest -v --driver Remote --capability browserName chrome tests/*
-#
 
 import pytest
 import time
 
 from pages.labirint_main import MainPage
-from config import main_url
+from config import *
 from selenium import webdriver
+
+
+# def test_click_notifications_btn(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_notify_btn.click()
+#     page.auth_window_close.click()
+
+
+# def test_login_window_open_close(web_browser):
+#     page = MainPage(web_browser)
+#     page.mylab_btn.click()
+#     page.auth_window_close.click()
+
+
+# def test_open_putorder_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_putorder.click()
+#     assert page.current_url() == main_url + 'cabinet/putorder/'
+
+
+# def test_open_cart_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_cart.click()
+#     assert page.current_url() == main_url + 'cart/'
+
+
+# def test_open_help_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_help.click()
+#     assert page.current_url() == main_url + 'help/'
+
+
+# def test_open_certificates_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_certificates.click()
+#     assert page.current_url() == main_url + 'top/certificates/'
+
+
+# def test_open_ratings_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_rating.click()
+#     assert page.current_url() == main_url + 'rating/?id_genre=-1&nrd=1'
+
+
+# def test_open_novelty_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_novelty.click()
+#     assert page.current_url() == main_url + 'novelty/'
+
+
+# def test_open_sale_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_sale.click()
+#     assert page.current_url() == main_url + discount_url
+
+
+def test_open_contact_window(web_browser):
+    page = MainPage(web_browser)
+    page.header_contact.click()
+    assert page.current_url() == main_url + 'contact/'
 
 
 # def test_open_now_page(web_browser):
@@ -83,22 +142,18 @@ from selenium import webdriver
 #     assert page.current_url() == main_url + 'club/'
 
 
-def test_change_region_name(web_browser):
-    page = MainPage(web_browser)
-    page.header_city_region.click()
-    page.header_drp_region.send_keys('Екатеринбург')
-    page.header_drp_region.send_keys(u'\ue007')
-    assert page.header_region_value.get_attribute('value') == "Екатеринбург"
+# def test_change_region_name(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_city_region.click()
+#     page.header_drp_region.send_keys('Екатеринбург')
+#     page.header_drp_region.send_keys(u'\ue007')
+#     assert page.header_region_value.get_attribute('value') == "Екатеринбург"
 
 # def test_click_main_page_logo(web_browser):
 #     page = MainPage(web_browser)
 #     page.main_page_logo.click()
 #     assert page.current_url() == main_url
 
-# def test_login_unsuccessful(web_browser):
-#     page = MainPage(web_browser)
-#     page.login_btn.click()
-#     page.input_field_1.send_keys('9991234455')
 
 # def test_check_main_search(web_browser):
 #     """ Make sure main search works fine. """
