@@ -1,2 +1,2 @@
 # qap_m28_site_tests
-SkillFactory final test
+SkillFactory final test study
