@@ -24,6 +24,7 @@ import time
 from pages.labirint_main import MainPage
 from config import *
 from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 # def test_click_notifications_btn(web_browser):
@@ -80,10 +81,22 @@ from selenium import webdriver
 #     assert page.current_url() == main_url + discount_url
 
 
-def test_open_contact_window(web_browser):
-    page = MainPage(web_browser)
-    page.header_contact.click()
-    assert page.current_url() == main_url + 'contact/'
+# def test_open_contact_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_contact.click()
+#     assert page.current_url() == main_url + 'contact/'
+
+
+# def test_open_support_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_support.click()
+#     assert page.current_url() == main_url + 'support/'
+
+
+# def test_open_maps_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_maps.click()
+#     assert page.current_url() == main_url + 'maps/'
 
 
 # def test_open_now_page(web_browser):

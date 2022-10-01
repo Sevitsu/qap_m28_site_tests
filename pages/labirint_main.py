@@ -51,7 +51,10 @@ class MainPage(WebPage):
     header_novelty = WebElement(css_selector='li[data-event-content="Новинки"]')
     header_sale = WebElement(css_selector='li[data-event-content="Скидки"]')
     header_contact = WebElement(css_selector='li[data-event-content="Контакты"]')
-
+    header_support = WebElement(css_selector='li[data-event-content="Поддержка"]')
+    header_maps = WebElement(css_selector='li[data-event-content="Пункты самовывоза"]')
+    header_social = WebElement(css_selector='a[title="Лабиринт в соцсетях"]')
+    header_social_ok = WebElement(xpath='a[@href = "https://ok.ru/labirintru"]')
 
     # Personal login
     mylab_btn = WebElement(css_selector='span[class="b-header-b-personal-e-text '
