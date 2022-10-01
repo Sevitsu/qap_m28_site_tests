@@ -165,6 +165,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 # def test_click_main_page_logo(web_browser):
 #     page = MainPage(web_browser)
+#     page.header_support.click()
 #     page.main_page_logo.click()
 #     assert page.current_url() == main_url
 
