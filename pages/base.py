@@ -187,3 +187,6 @@ class WebPage(object):
 
         # Go up:
         self._web_driver.execute_script('window.scrollTo(document.body.scrollHeight, 0);')
+
+    def switch_to_window(self):
+        self._web_driver.switch_to.window(self._web_driver.window_handles[1])

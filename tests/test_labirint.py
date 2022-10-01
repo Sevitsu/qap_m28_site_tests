@@ -226,15 +226,23 @@ from selenium.webdriver.common.action_chains import ActionChains
 #     assert page.current_url() == partner_url
 
 
-def test_open_cabinet_page_from_footer(web_browser):
-    page = MainPage(web_browser)
-    page.scroll_down()
-    page.footer_cabinet.click()
-    assert page.current_url() == main_url + 'cabinet/'
+# def test_open_cabinet_page_from_footer(web_browser):
+#     page = MainPage(web_browser)
+#     page.scroll_down()
+#     page.footer_cabinet.click()
+#     assert page.current_url() == main_url + 'cabinet/'
 
 
-def test_open_support_page_from_footer(web_browser):
+# def test_open_support_page_from_footer(web_browser):
+#     page = MainPage(web_browser)
+#     page.scroll_down()
+#     page.footer_support.click()
+#     assert page.current_url() == main_url + 'support/'
+
+
+def test_open_social_ok_from_footer(web_browser):
     page = MainPage(web_browser)
     page.scroll_down()
-    page.footer_support.click()
-    assert page.current_url() == main_url + 'support/'
+    page.footer_social_ok.click()
+    page.switch_to_window()
+    assert page.current_url() == social_ok_url

@@ -223,6 +223,9 @@ class WebElement(object):
         # Delete element:
         self._web_driver.execute_script("arguments[0].remove();", element)
 
+    def switch_to_window(self):
+        self._web_driver.switch_to.window(self._web_driver.window_handles[1])
+
 
 class ManyWebElements(WebElement):
 

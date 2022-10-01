@@ -78,3 +78,4 @@ class MainPage(WebPage):
     footer_partner = WebElement(xpath='//a[@data-event-content="Партнерам"]')
     footer_cabinet = WebElement(xpath='//a[@data-event-content="Кабинет"]')
     footer_support = WebElement(xpath='//a[@data-event-content="Поддержка"]')
+    footer_social_ok = WebElement(xpath='//a[@data-event-content="Одноклассники"]')
