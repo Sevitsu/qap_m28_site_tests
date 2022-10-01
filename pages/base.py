@@ -51,9 +51,9 @@ class WebPage(object):
         """ Scroll the page down. """
 
         if offset:
-            self._web_driver.execute_script('window.scrollTo(0, {0});'.format(offset))
+            self._web_driver.execute_script('window.scrollBy(0, {0});'.format(offset))
         else:
-            self._web_driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
+            self._web_driver.execute_script('window.scrollBy(0, document.body.scrollHeight);')
 
     def scroll_up(self, offset=0):
         """ Scroll the page up. """

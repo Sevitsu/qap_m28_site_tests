@@ -16,6 +16,8 @@ class MainPage(WebPage):
 
         super().__init__(web_driver, url)
 
+    current_url = WebPage.get_current_url
+
     # Main page Logo
     main_page_logo = WebElement(css_selector='span[class="b-header-b-logo-e-logo"]')
 
@@ -30,7 +32,6 @@ class MainPage(WebPage):
                                           ' cart-icon-js"]')
 
     header_recommend_btn = WebElement(css_selector='span[class="itm-md-vis-hdn itm-lg-vis-shw"]')
-    current_url = WebPage.get_current_url
     header_books = WebElement(css_selector='li[data-toggle="header-genres"]')
     header_best = WebElement(css_selector='li[data-toggle="header-best"]')
     header_school = WebElement(css_selector='li[data-toggle="header-school"]')
@@ -68,10 +69,12 @@ class MainPage(WebPage):
     search_run_button = WebElement(css_selector='span[class="b-header-b-search-e-btntxt"]')
 
     # Titles of the products in search results
-    products_titles = ManyWebElements(xpath='//a[contains(@href, "/books") and @title!=""]')
+    products_titles = ManyWebElements(xpath='//a[@class="product-title-link" and @title!=""]')
 
-    # Button to sort products by price
-    sort_products_by_price = WebElement(xpath='//span[contains(text(), "Сначала дешевые"]')
-
-    # Prices of the products in search results
-    products_prices = ManyWebElements(xpath='//span[class="price-val"]/span')
+    # Page footer
+    footer_games = WebElement(xpath='//a[@data-event-content="Игрушки"]')
+    footer_reviews = WebElement(xpath='//a[@data-event-content="Рецензии читателей"]')
+    footer_best = WebElement(xpath='//a[@data-event-content="Главные книги"]')
+    footer_partner = WebElement(xpath='//a[@data-event-content="Партнерам"]')
+    footer_cabinet = WebElement(xpath='//a[@data-event-content="Кабинет"]')
+    footer_support = WebElement(xpath='//a[@data-event-content="Поддержка"]')

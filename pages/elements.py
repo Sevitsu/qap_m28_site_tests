@@ -197,6 +197,9 @@ class WebElement(object):
         # Make screen-shot of the page:
         self._web_driver.save_screenshot(file_name)
 
+    def scroll_down(self):
+        self._web_driver.scroll_down()
+
     def scroll_to_element(self):
         """ Scroll page to the element. """
 
@@ -204,13 +207,13 @@ class WebElement(object):
 
         # Scroll page to the element:
         # Option #1 to scroll to element:
-        # self._web_driver.execute_script("arguments[0].scrollIntoView();", element)
+        self._web_driver.execute_script("arguments[0].scrollIntoView();", element)
 
         # Option #2 to scroll to element:
-        try:
-            element.send_keys(Keys.DOWN)
-        except Exception as e:
-            pass  # Just ignore the error if we can't send the keys to the element
+        # try:
+        #     element.send_keys(Keys.DOWN)
+        # except Exception as e:
+        #     pass  # Just ignore the error if we can't send the keys to the element
 
     def delete(self):
         """ Deletes element from the page. """

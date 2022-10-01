@@ -51,54 +51,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 #     assert page.current_url() == main_url + 'cart/'
 
 
-# def test_open_help_window(web_browser):
-#     page = MainPage(web_browser)
-#     page.header_help.click()
-#     assert page.current_url() == main_url + 'help/'
-
-
-# def test_open_certificates_window(web_browser):
-#     page = MainPage(web_browser)
-#     page.header_certificates.click()
-#     assert page.current_url() == main_url + 'top/certificates/'
-
-
-# def test_open_ratings_window(web_browser):
-#     page = MainPage(web_browser)
-#     page.header_rating.click()
-#     assert page.current_url() == main_url + 'rating/?id_genre=-1&nrd=1'
-
-
-# def test_open_novelty_window(web_browser):
-#     page = MainPage(web_browser)
-#     page.header_novelty.click()
-#     assert page.current_url() == main_url + 'novelty/'
-
-
-# def test_open_sale_window(web_browser):
-#     page = MainPage(web_browser)
-#     page.header_sale.click()
-#     assert page.current_url() == main_url + discount_url
-
-
-# def test_open_contact_window(web_browser):
-#     page = MainPage(web_browser)
-#     page.header_contact.click()
-#     assert page.current_url() == main_url + 'contact/'
-
-
-# def test_open_support_window(web_browser):
-#     page = MainPage(web_browser)
-#     page.header_support.click()
-#     assert page.current_url() == main_url + 'support/'
-
-
-# def test_open_maps_window(web_browser):
-#     page = MainPage(web_browser)
-#     page.header_maps.click()
-#     assert page.current_url() == main_url + 'maps/'
-
-
 # def test_open_now_page(web_browser):
 #     page = MainPage(web_browser)
 #     page.header_recommend_btn.click()
@@ -162,6 +114,55 @@ from selenium.webdriver.common.action_chains import ActionChains
 #     page.header_drp_region.send_keys(u'\ue007')
 #     assert page.header_region_value.get_attribute('value') == "Екатеринбург"
 
+
+# def test_open_help_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_help.click()
+#     assert page.current_url() == main_url + 'help/'
+
+
+# def test_open_certificates_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_certificates.click()
+#     assert page.current_url() == main_url + 'top/certificates/'
+
+
+# def test_open_ratings_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_rating.click()
+#     assert page.current_url() == main_url + 'rating/?id_genre=-1&nrd=1'
+
+
+# def test_open_novelty_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_novelty.click()
+#     assert page.current_url() == main_url + 'novelty/'
+
+
+# def test_open_sale_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_sale.click()
+#     assert page.current_url() == main_url + discount_url
+
+
+# def test_open_contact_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_contact.click()
+#     assert page.current_url() == main_url + 'contact/'
+
+
+# def test_open_support_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_support.click()
+#     assert page.current_url() == main_url + 'support/'
+
+
+# def test_open_maps_window(web_browser):
+#     page = MainPage(web_browser)
+#     page.header_maps.click()
+#     assert page.current_url() == main_url + 'maps/'
+
+
 # def test_click_main_page_logo(web_browser):
 #     page = MainPage(web_browser)
 #     page.main_page_logo.click()
@@ -172,29 +173,20 @@ from selenium.webdriver.common.action_chains import ActionChains
 #     """ Make sure main search works fine. """
 #
 #     page = MainPage(web_browser)
-#     time.sleep(9)
-#
-#     page.search = 'книга'
+#     page.search = user_search
 #     page.search_run_button.click()
 #
 #     # Verify that user can see the list of products:
 #     assert page.products_titles.count() > 0
-#
-#     # Make sure user found the relevant products
-#     for title in page.products_titles.get_text():
-#         msg = 'Wrong product in search "{}"'.format(title)
-#         assert 'книга' in title.lower(), msg
 
 
 # def test_check_wrong_input_in_search(web_browser):
 #     """ Make sure that wrong keyboard layout input works fine. """
 #
 #     page = MainPage(web_browser)
-#     time.sleep(8)
 #
-#     # Try to enter "книга" with English keyboard:
-#     page.search = 'rybuf'
-#     time.sleep(3)
+#     # Try to enter "ОГЭ" with English keyboard:
+#     page.search = 'огэ'
 #     page.search_run_button.click()
 #
 #     # Verify that user can see the list of products:
@@ -203,38 +195,46 @@ from selenium.webdriver.common.action_chains import ActionChains
 #     # Make sure user found the relevant products
 #     for title in page.products_titles.get_text():
 #         msg = 'Wrong product in search "{}"'.format(title)
-#         assert 'книга' in title.lower(), msg
-#
-#
-# @pytest.mark.xfail(reason="Filter by price doesn't work")
-# def test_check_sort_by_price(web_browser):
-#     """ Make sure that sort by price works fine.
-#
-#         Note: this test case will fail because there is a bug in
-#               sorting products by price.
-#     """
-#
+#         assert 'огэ' in title.lower(), msg
+
+
+# def test_open_games_window_from_footer(web_browser):
 #     page = MainPage(web_browser)
-#     time.sleep(8)
-#
-#     page.search = 'книга'
-#     time.sleep(3)
-#     page.search_run_button.click()
-#
-#     # Scroll to element before click on it to make sure
-#     # user will see this element in real browser
-#     page.sort_products_by_price.scroll_to_element()
-#     page.sort_products_by_price.click()
-#     page.wait_page_loaded()
-#
-#     # Get prices of the products in Search results
-#     all_prices = page.products_prices.get_text()
-#
-#     # Convert all prices from strings to numbers
-#     all_prices = [float(p.replace(' ', '')) for p in all_prices]
-#
-#     print(all_prices)
-#     print(sorted(all_prices))
-#
-#     # Make sure products are sorted by price correctly:
-#     assert all_prices == sorted(all_prices), "Sort by price doesn't work!"
+#     page.scroll_down()
+#     page.footer_games.click()
+#     assert page.current_url() == main_url + 'games/'
+
+
+# def test_open_reviews_window_from_footer(web_browser):
+#     page = MainPage(web_browser)
+#     page.scroll_down()
+#     page.footer_reviews.click()
+#     assert page.current_url() == main_url + 'reviews/'
+
+
+# def test_open_best_page_from_footer(web_browser):
+#     page = MainPage(web_browser)
+#     page.scroll_down()
+#     page.footer_best.click()
+#     assert page.current_url() == main_url + 'best/'
+
+
+# def test_open_partner_page_from_footer(web_browser):
+#     page = MainPage(web_browser)
+#     page.scroll_down()
+#     page.footer_partner.click()
+#     assert page.current_url() == partner_url
+
+
+def test_open_cabinet_page_from_footer(web_browser):
+    page = MainPage(web_browser)
+    page.scroll_down()
+    page.footer_cabinet.click()
+    assert page.current_url() == main_url + 'cabinet/'
+
+
+def test_open_support_page_from_footer(web_browser):
+    page = MainPage(web_browser)
+    page.scroll_down()
+    page.footer_support.click()
+    assert page.current_url() == main_url + 'support/'
