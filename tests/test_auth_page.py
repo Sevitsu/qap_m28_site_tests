@@ -1,5 +1,5 @@
 import pytest
-from pages.auth_page import AuthPage
+from pages.labirint_auth_page import AuthPage
 
 
 def test_authorisation_success(web_browser):

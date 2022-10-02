@@ -25,6 +25,7 @@ from pages.labirint_main import MainPage
 from config import *
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
+import encode
 
 
 # def test_click_notifications_btn(web_browser):
@@ -170,15 +171,17 @@ from selenium.webdriver.common.action_chains import ActionChains
 #     assert page.current_url() == main_url
 
 
-# def test_check_main_search(web_browser):
-#     """ Make sure main search works fine. """
-#
-#     page = MainPage(web_browser)
-#     page.search = user_search
-#     page.search_run_button.click()
-#
-#     # Verify that user can see the list of products:
-#     assert page.products_titles.count() > 0
+def test_check_main_search(web_browser):
+    """ Make sure main search works fine. """
+
+    page = MainPage(web_browser)
+    page.search = user_search
+    page.search_run_button.click()
+    res = encode.convert_str_hex(user_search)
+
+    # Verify that user can see the list of products:
+    assert page.products_titles.count() > 0
+    assert page.current_url() == main_url + 'search/' + res + '/?stype=0'
 
 
 # def test_check_wrong_input_in_search(web_browser):
@@ -241,9 +244,9 @@ from selenium.webdriver.common.action_chains import ActionChains
 #     assert page.current_url() == main_url + 'support/'
 
 
-def test_open_social_ok_from_footer(web_browser):
-    page = MainPage(web_browser)
-    page.scroll_down()
-    page.footer_social_ok.click()
-    page.switch_to_window()
-    assert page.current_url() == social_ok_url
+# def test_open_social_ok_from_footer(web_browser):
+#     page = MainPage(web_browser)
+#     page.scroll_down()
+#     page.footer_social_ok.click()
+#     page.switch_to_window()
+#     assert page.current_url() == social_ok_url
