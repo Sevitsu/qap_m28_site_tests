@@ -60,7 +60,6 @@ class MainPage(WebPage):
     # Personal login
     mylab_btn = WebElement(css_selector='span[class="b-header-b-personal-e-text '
                                         'b-header-b-personal-e-text-m-overflow"]')
-    input_field_1 = WebElement(id='_inputnamecode_2')
 
     # Main search field
     search = WebElement(id='search-field')

@@ -226,6 +226,13 @@ class WebElement(object):
     def switch_to_window(self):
         self._web_driver.switch_to.window(self._web_driver.window_handles[1])
 
+    def highlight_element(self):
+        action = ActionChains(self._web_driver)
+        # highlight
+        action.key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL).perform()
+        # clear up
+        action.key_down(Keys.BACKSPACE).key_up(Keys.BACKSPACE).perform()
+
 
 class ManyWebElements(WebElement):
 
